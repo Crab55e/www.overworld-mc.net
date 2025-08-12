@@ -16,10 +16,18 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, Code } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
-import bgImage from "../../assets/index-bg.avif"; // Image is 1600x900
-import '/src/styles/global.css'
+import bgImage from "../../assets/index-bg.avif";
+import './index.css'
+
+<Card title="Java Edition 用の IP">
+  <Code code="join.overworld-mc.net" lang="plaintext" title="IP"/>
+</Card>
+<Card title="統合版用の IP とポート">
+<Code code="overworld-mc.net" lang="plaintext" title="IP"/>
+<Code code="19133" lang="plaintext" title="ポート"/>
+</Card>
 
 <div class="bgmovie-wrapper">
     <Image src={bgImage} alt="背景画像" />
