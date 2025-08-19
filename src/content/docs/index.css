@@ -24,20 +24,3 @@ html {
     -webkit-user-select: none;
     user-select: none;
 }
-
-.sl-link-button.primary {
-    color: #fff;
-    text-shadow: #0008 2px 2px 0;
-    background-image: url("../../assets/parts/button.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center center;
-    border-radius: 0;
-    background-color: #0000;
-    border: none;
-    padding: 1.25rem;
-    font-size: var(--sl-text-xl);
-}
-.sl-link-button.primary:hover {
-    background-image: url("../../assets/parts/button_highlighted.png");
-}

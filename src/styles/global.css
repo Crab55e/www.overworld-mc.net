@@ -12,8 +12,8 @@
 }
 
 @theme {
-    --font-sans: "MinecraftSeven2",  "Noto Sans JP", sans-serif;
-    --font-mono: "MinecraftSeven2", "Noto Sans Mono", monospace;
+    --font-sans: "Noto Sans JP", sans-serif;
+    --font-mono: "Noto Sans Mono", monospace;
     /* Generated accent color palettes. */
     --color-accent-200: #b3d598;
     --color-accent-600: #467500;
