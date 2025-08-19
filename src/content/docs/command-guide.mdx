@@ -2,9 +2,114 @@
 title: コマンドガイド
 description: サーバー内で使用できるコマンドの一覧とその説明について
 ---
-import { Aside } from '@astrojs/starlight/components';
-import { Image } from 'astro:assets';
-import sparkPingOutputImage from "../../assets/per-page/command-guide/spark-ping-output.png";
 
-サーバー内で使用できるコマンドの一覧とその説明について
+import { Aside, Code } from "@astrojs/starlight/components";
+import { Image } from "astro:assets";
+import sparkvPingOutputImage from "../../assets/per-page/command-guide/sparkv-ping-output.png";
+import sparkPingOutputImage from "../../assets/per-page/command-guide/spark-ping-output.png";
+import sparkTpsOutputImage from "../../assets/per-page/command-guide/spark-tps-output.png";
+import sparkHealthreportOutputImage from "../../assets/per-page/command-guide/spark-healthreport-output.png";
+import tabtpsToggleOutputImage from "../../assets/per-page/command-guide/tabtps-toggle-output.png";
+
+サーバー内で使用できるコマンドの一覧とその説明について<br/>
 現在サーバー内で一般のプレイヤーが使用できるのは以下のコマンドです。
+
+| コマンド                     | 簡単な説明                         |
+| ---------------------------- | ---------------------------------- |
+| [/sparkv ping](#sparkv-ping) | サーバー内の平均 Ping を測定します |
+| [/server](#server)           | プレイするサーバーを切り替えます   |
+
+## プロキシ系
+
+### `/sparkv ping`
+
+使用例:
+
+<Code code="/sparkv ping" />
+プロキシ内に居る全プレイヤーとプロキシ間の Ping の平均を表示します。
+<br />
+プロキシ内に著しくpingの高いプレイヤーが居るとそれに合わせて平均 Ping も高くなります。
+<Image src={sparkvPingOutputImage} alt="実行結果" />
+
+### `/server`
+
+使用例:
+
+<Code code="/server main" />
+参加中のサーバーから別のサーバーへ移動します。
+<br />
+mod鯖、イベント鯖などを移動する際に使用します。
+<Aside>2025/08/14 時点では、main以外のサーバーは公開されていません。</Aside>
+
+## サーバー系
+
+### `/spawn` `/s`
+
+使用例:
+
+<Code code="/s" />
+サーバーの初期スポーン地点へテレポートします
+<Aside type="caution">
+    2025/08/19 時点では、エンドやネザーでの使用において不具合が発生しています。
+    <br />
+    オーバーワールド以外では使用しないでください
+</Aside>
+
+### `/spark ping`
+
+使用例:
+
+<Code code="/spark ping" />
+サーバー内に居る全プレイヤーとサーバー間の Ping の平均を表示します。
+<br />
+サーバー内に著しくpingの高いプレイヤーが居るとそれに合わせて平均 Ping も高くなります。
+<Image src={sparkPingOutputImage} alt="実行結果" />
+
+### `/spark tps`
+
+使用例:
+
+<Code code="/spark tps" />
+現在のサーバーのパフォーマンス状況を表示します。
+<br />
+tpsは高ければ高いほど、msptは低ければ低いほどパフォーマンスが良いと言えます。
+<br />
+tpsは基本的には常に19-20であるべき値で、10を下回る場合大きな負荷がかかっているか不具合が存在するかもしれません
+<Image src={sparkTpsOutputImage} alt="実行結果" />
+<Aside>tpsが著しく低い場合管理者に報告してください</Aside>
+
+### `/spark healthreport`
+
+使用例:
+
+<Code code="/spark healthreport" />
+現在のサーバーの状態を表示します。 <br />
+`/spark tps` に加えて、メモリやストレージの使用率の表示などが含まれます
+
+<Image src={sparkHealthreportOutputImage} alt="実行結果" />
+
+### `/tabtps toggle`
+
+使用例:
+
+<Code code="/tabtps toggle bossbar" />
+リアルタイムで更新されるTPSやレイテンシなどのインジケータの表示を切り替えます。 <br />
+`bossbar`の他にも、`actionbar`や`tab`引数が利用できます
+<Image src={tabtpsToggleOutputImage} alt="実行結果" />
+
+### `/lock`
+
+使用例:
+
+<Code code="/lock" />
+チェストや樽、看板などのブロック自分にのみ使用できるように保護します。
+<br />
+コマンド実行後に保護対象のブロックをクリックして保護が完了します
+<br />
+保護を解除したい場合は `/unlock` を使用します
+<video
+    src="https://static.mets-server.com/assets/lock-output.mp4"
+    autoplay
+    loop
+    muted
+></video>
