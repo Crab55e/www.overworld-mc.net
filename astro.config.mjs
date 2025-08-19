@@ -11,38 +11,50 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
     site: "https://www.overworld-mc.net/",
-    integrations: [starlight({
-        customCss: ["./src/styles/global.css"],
-        title: "Overworld MC",
-        logo: {
-            src: "./src/assets/logo.svg",
-        },
-        social: [
-            {
-                icon: "discord",
-                label: "Discord",
-                href: "https://discord.gg/UEDkWKtKhX",
+    integrations: [
+        starlight({
+            customCss: ["./src/styles/global.css"],
+            title: "Overworld MC",
+            components: {
+                Footer: "./src/components/Footer.astro"
             },
-        ],
-        sidebar: [
-            {
-                label: "トップページ",
-                link: "/",
+            logo: {
+                src: "./src/assets/logo.svg",
             },
-            {
-                label: "参加ガイド",
-                autogenerate: { directory: "join-guides"}
+            social: [
+                {
+                    icon: "discord",
+                    label: "Discord",
+                    href: "https://discord.gg/UEDkWKtKhX",
+                },
+            ],
+            sidebar: [
+                {
+                    label: "トップページ",
+                    link: "/",
+                },
+                {
+                    label: "参加ガイド",
+                    autogenerate: { directory: "join-guides" },
+                },
+                {
+                    label: "Discord",
+                    slug: "discord",
+                },
+                {
+                    label: "コマンドガイド",
+                    slug: "command-guide",
+                },
+            ],
+            editLink: {
+                baseUrl:
+                    "https://github.com/Crab55e/www.overworld-mc.net/edit/main/",
             },
-            {
-                label: "Discord",
-                slug: "discord",
-            },
-            {
-                label: "コマンドガイド",
-                slug: "command-guide",
-            },
-        ],
-    }), mdx(), react()],
+            pagination: false,
+        }),
+        mdx(),
+        react(),
+    ],
 
     vite: {
         plugins: [tailwindcss()],

@@ -6,9 +6,14 @@
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
 
+@font-face {
+    font-family: "MinecraftSeven2";
+    src: url("./fonts/minecraft-seven-2.otf.woff2/minecraft-seven-2.otf.woff2") format("woff2");
+}
+
 @theme {
-    --font-sans: "Noto Sans JP", sans-serif;
-    --font-mono: "Noto Sans Mono", monospace;
+    --font-sans: "MinecraftSeven2",  "Noto Sans JP", sans-serif;
+    --font-mono: "MinecraftSeven2", "Noto Sans Mono", monospace;
     /* Generated accent color palettes. */
     --color-accent-200: #b3d598;
     --color-accent-600: #467500;
@@ -23,4 +28,13 @@
     --color-gray-700: #383838;
     --color-gray-800: #272727;
     --color-gray-900: #181818;
+}
+
+
+footer {
+    padding-top: 2rem;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    text-align: center;
+    border-top: 1px solid var(--color-gray-800);
 }
