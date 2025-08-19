@@ -35,6 +35,8 @@ html {
     border-radius: 0;
     background-color: #0000;
     border: none;
+    padding: 1.25rem;
+    font-size: var(--sl-text-xl);
 }
 .sl-link-button.primary:hover {
     background-image: url("../../assets/parts/button_highlighted.png");
