@@ -19,7 +19,7 @@ import tabtpsToggleOutputImage from "../../assets/per-page/command-guide/tabtps-
 | [/sparkv ping](#sparkv-ping) | サーバー内の平均 Ping を測定します |
 | [/server](#server)           | プレイするサーバーを切り替えます   |
 
-## プロキシ系
+## ネットワーク系
 
 ### `/sparkv ping`
 
@@ -41,7 +41,7 @@ import tabtpsToggleOutputImage from "../../assets/per-page/command-guide/tabtps-
 mod鯖、イベント鯖などを移動する際に使用します。
 <Aside>2025/08/14 時点では、main以外のサーバーは公開されていません。</Aside>
 
-## サーバー系
+## ゲーム系
 
 ### `/spawn` `/s`
 
@@ -55,7 +55,11 @@ mod鯖、イベント鯖などを移動する際に使用します。
     オーバーワールド以外では使用しないでください
 </Aside>
 
-### `/spark ping`
+### `/spark`
+
+`/spark` ではサーバーの負荷状況の分析などが行えます。
+
+#### `/spark ping`
 
 使用例:
 
@@ -65,7 +69,7 @@ mod鯖、イベント鯖などを移動する際に使用します。
 サーバー内に著しくpingの高いプレイヤーが居るとそれに合わせて平均 Ping も高くなります。
 <Image src={sparkPingOutputImage} alt="実行結果" />
 
-### `/spark tps`
+#### `/spark tps`
 
 使用例:
 
@@ -78,7 +82,7 @@ tpsは基本的には常に19-20であるべき値で、10を下回る場合大�
 <Image src={sparkTpsOutputImage} alt="実行結果" />
 <Aside>tpsが著しく低い場合管理者に報告してください</Aside>
 
-### `/spark healthreport`
+#### `/spark healthreport`
 
 使用例:
 
@@ -102,14 +106,72 @@ tpsは基本的には常に19-20であるべき値で、10を下回る場合大�
 使用例:
 
 <Code code="/lock" />
-チェストや樽、看板などのブロック自分にのみ使用できるように保護します。
+チェストや樽、看板などのブロックを自分にのみ使用できるように保護します。
 <br />
 コマンド実行後に保護対象のブロックをクリックして保護が完了します
 <br />
-保護を解除したい場合は `/unlock` を使用します
+保護を解除したい場合は [/unlock](#unlock) を使用します
 <video
     src="https://static.mets-server.com/assets/lock-output.mp4"
     autoplay
     loop
     muted
 ></video>
+
+### `/unlock` `/cremove`
+
+使用例:
+
+<Code code="/unlock" />
+チェストや樽、看板などのブロックに設定した保護を削除できます。
+<br />
+コマンド実行後に保護対象のブロックをクリックして保護が完了します
+<br />
+
+<Aside type="caution">後述の [/cunlock](#cunlock) とは機能が全く異なります</Aside>
+
+### `/cpublic`
+
+使用例:
+
+<Code code="/cpublic" />
+チェストや樽、看板などのブロックに誰でも自由に使用できるような保護を追加します。
+<br />
+コマンド実行後に保護対象のブロックをクリックして保護が完了します
+<br />
+このコマンドを使用する事で、誰でも自由に使用可能でかつ誰かに勝手にロックされることのないチェストなどを作成できます。
+
+### `/cdonation`
+
+使用例:
+
+<Code code="/cdonation" />
+チェストや樽などのブロックに対して、寄付用の保護を追加します。
+<br />
+コマンド実行後に保護対象のブロックをクリックして保護が完了します
+<br />
+このコマンドを使用する事で、持ち主以外の人がアイテムを閲覧やアイテムを入れる事が出来るが取り出す事は出来ないチェストなどを作成できます。
+
+### `/cpassword`
+
+使用例:
+
+<Code code="/cpassword inko_kawaii_1234" />
+チェストや樽、看板などのブロックをパスワードを使用して保護します。
+<br />
+コマンド実行後に保護対象のブロックをクリックして保護が完了します
+<br />
+[/cunlock](#cunlock) コマンドを使用してロックを解除することでチェストを開ける事が出来るようになります。
+<br />
+その場にいないプレイヤーや仲間とチェストを共有したい場合などに使用できます
+
+### `/cunlock`
+
+使用例:
+
+<Code code="/cunlock inko_kawaii_1234" />
+[/cpassword](#cpassword) で保護されたチェストを開けたい場合、パスワードを使用して開ける事が出来ます。
+<br />
+一度パスワードを入力して開けたチェストはサーバーに入り直さない限り次回からパスワード無しで開ける事が出来ます
+
+<Aside type="caution">前述の [/unlock](#unlock) とは機能が全く異なります</Aside>
