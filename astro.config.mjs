@@ -15,8 +15,9 @@ export default defineConfig({
         starlight({
             customCss: ["./src/styles/global.css"],
             title: "Overworld MC",
+            tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 6 },
             components: {
-                Footer: "./src/components/Footer.astro"
+                Footer: "./src/components/Footer.astro",
             },
             logo: {
                 src: "./src/assets/logo.svg",
