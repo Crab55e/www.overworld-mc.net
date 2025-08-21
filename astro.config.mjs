@@ -27,6 +27,11 @@ export default defineConfig({
                     label: "Discord",
                     href: "https://discord.gg/UEDkWKtKhX",
                 },
+                {
+                    icon: "github",
+                    label: "GitHub",
+                    href: "https://github.com/Crab55e",
+                },
             ],
             sidebar: [
                 {
